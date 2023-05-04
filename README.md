@@ -12,8 +12,8 @@ Project Management Application for iOS platform
 ## Version History
 * 0.6 - 03/05/2023
   * Added Edit User View Controller
-	* Colour scheme changed according to initial UI/UX design in Figma
- 	* Added comments to all documents 
+   * Colour scheme changed according to initial UI/UX design in Figma
+  * Added comments to all documents 
   * Removed unused API requests: get all projects, get all users, get all tasks
   * Multi-device tests performed
 * 0.5 - 02/05/203
