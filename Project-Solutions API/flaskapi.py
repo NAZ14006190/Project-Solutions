@@ -18,16 +18,6 @@ def get_db_connection():
 def SQL_to_json(sql_rows):
     return jsonify([dict(ix) for ix in sql_rows])
 
-@app.route('/api/users/get/all')
-def fetch_all_users():
-    try:
-        conn = get_db_connection()
-        return SQL_to_json(conn.execute('SELECT * FROM users').fetchall())
-    except:
-        return jsonify({"Error" : "No users to return!"})
-    finally:
-        print(f"Finalising /api/users/get/all")
-        conn.close()
 
 @app.route('/api/users/get/byid')
 def fetch_user_by_id():
@@ -123,17 +113,6 @@ def update_project(project_id):
 
 
 
-@app.route('/api/projects/get/all')
-def fetch_all_projects():
-    try:
-        conn = get_db_connection()
-        return SQL_to_json(conn.execute('SELECT * FROM projects').fetchall())
-    except:
-        return jsonify({"Error" : "No projects to return!"})
-    finally:
-        print(f"Finalising /api/projects/get/all")
-        conn.close()
-
 @app.route('/api/projects/get/byid/<int:project_id>')
 def fetch_project_by_id(project_id):
     try:
@@ -185,16 +164,6 @@ def fetch_projects_by_user_id(user_id):
         return jsonify({"Error" : "No projects to return for the specified user!"})
     finally:
         print(f"Finalising /api/projects/get/by_user_id/{user_id}")
-        conn.close()
-@app.route('/api/tasks/get/all')
-def fetch_all_tasks():
-    try:
-        conn = get_db_connection()
-        return SQL_to_json(conn.execute('SELECT * FROM tasks').fetchall())
-    except:
-        return jsonify({"Error" : "No tasks to return!"})
-    finally:
-        print(f"Finalising /api/tasks/get/all")
         conn.close()
 
 @app.route('/api/tasks/get/byid')
